@@ -30,14 +30,12 @@ void do_str(const char *src, mp_parse_input_kind_t input_kind) {
 
 static char *stack_top;
 #if MICROPY_ENABLE_GC
-static char *heap;
+static char heap[0x4000];
 #endif
 
 int main(int argc, char **argv) {
     int stack_dummy;
     stack_top = (char *)&stack_dummy;
-
-    heap = malloc(0x4000 * 4); // 65536 bytes should be enoughhh
 
     #if MICROPY_ENABLE_GC
     gc_init(heap, heap + sizeof(heap));
