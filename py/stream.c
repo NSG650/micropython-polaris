@@ -35,6 +35,16 @@
 // This file defines generic Python stream read/write methods which
 // dispatch to the underlying stream interface of an object.
 
+#ifndef SEEK_SET
+#define SEEK_SET    0   /* set file offset to offset */
+#endif
+#ifndef SEEK_CUR
+#define SEEK_CUR    1   /* set file offset to current plus offset */
+#endif
+#ifndef SEEK_END
+#define SEEK_END    2   /* set file offset to EOF plus offset */
+#endif
+
 // TODO: should be in mpconfig.h
 #define DEFAULT_BUFFER_SIZE 256
 
